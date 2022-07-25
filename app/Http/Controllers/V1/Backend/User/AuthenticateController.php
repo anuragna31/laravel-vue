@@ -32,8 +32,7 @@ class AuthenticateController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $access_token =  $this->respondWithToken($token);
-        return response()->json(['user' => Auth::user(), 'token' => $access_token]);
+        return $this->respondWithToken($token);
     }
 
     /**
@@ -48,7 +47,9 @@ class AuthenticateController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => Auth::factory()->getTTL() * 60
+            'expires_in' => Auth::factory()->getTTL() * 60,
+            'name' => Auth::user()->name
+
         ]);
     }
 

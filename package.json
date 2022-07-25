@@ -24,6 +24,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@vue/composition-api": "^1.7.0",
+        "@vuelidate/core": "^2.0.0-alpha.43",
+        "@vuelidate/validators": "^2.0.0-alpha.31",
         "vue-router": "^3.5.4"
     }
 }

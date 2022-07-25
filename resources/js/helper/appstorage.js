@@ -15,7 +15,7 @@ class appstorage {
     }
 
     getToken() {
-        localStorage.getItem(toekn);
+        localStorage.getItem(token);
     }
 
     getUser() {

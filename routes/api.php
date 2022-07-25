@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\V1\Backend\Data\StoreDataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,12 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'],function($router) {
     Route::post('/profile', [AuthenticateController::class, 'profile']);
     Route::post('/logout', [AuthenticateController::class, 'logout']);
     Route::post('/refresh', [AuthenticateController::class, 'refresh']);
+});
+
+Route::prefix('storedata')->group(function() {
+    Route::get('/', [StoreDataController::class, 'index']);
+    Route::post('/store', [StoreDataController::class, 'store']);
+    Route::get('/delete/{id?}', [StoreDataController::class, 'delete']);
+    Route::get('/edit/{id?}', [StoreDataController::class, 'edit']);
+    Route::post('/update/{id?}', [StoreDataController::class, 'update']);
 });
